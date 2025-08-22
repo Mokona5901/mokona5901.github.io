@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio de Mokona5901</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <script src="/assets/js/lang.js"></script>
+    <script>
+      (function(){
+        try{
+          if (localStorage.getItem('site_lang')) return;
+          const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          const lang = nav.split('-')[0];
+          if (lang === 'en' && !location.pathname.startsWith('/')) {
+            location.href = '/';
+          }
+        } catch(e){}
+      })();
+    </script>
+
+    <main class="container">
+      <header>
+        <h1>Bienvenue sur le site portfolio de Mokona5901</h1>
+        <p class="lead">Développeur back‑end — construction de services robustes et applications temps réel.</p>
+        <p><a href="/" onclick="localStorage.setItem('site_lang','en')">English</a></p>
+      </header>
+
+      <section>
+        <h2>À propos</h2>
+        <p>Je suis développeur back‑end, spécialisé dans la création de services scalables et maintenables ainsi que d’applications temps réel. Compétences principales : Node.js, Express, Socket.io, MongoDB, C++ et outils système.</p>
+      </section>
+
+      <section>
+        <h2>Projets personnels</h2>
+        <ul>
+          <li><strong>Bots Discord</strong> — plusieurs bots développés avec Node.js et Discord.js (automatisation, modération, utilitaires).</li>
+          <li><strong>Application de chat temps réel</strong> — application type Discord avec Node.js, Express, Socket.io et MongoDB (salles, présence, messages).</li>
+          <li><strong>Discord RPC pour WSL2</strong> — intégration native en C++ exposant le Rich Presence depuis les environnements WSL2.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>GitHub</h2>
+        <div id="github-widget">Chargement du profil GitHub…</div>
+        <script src="/assets/js/github-widget.js"></script>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Adresse mail : <a href="mailto:mokona5901@gmail.com">mokona5901@gmail.com</a></p>
+      </section>
+
+      <footer>
+        <p>Déployé depuis le dépôt <code>mokona5901.github.io</code>.</p>
+      </footer>
+    </main>
+  </body>
+</html>

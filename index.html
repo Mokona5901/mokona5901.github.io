@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mokona5901's Portfolio</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <script src="/assets/js/lang.js"></script>
+    <script>
+      (function(){
+        try{
+          if (localStorage.getItem('site_lang')) return;
+          const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          const lang = nav.split('-')[0];
+          if (lang === 'fr' && !location.pathname.startsWith('/fr/')) {
+            location.href = '/fr/';
+          }
+        } catch(e){}
+      })();
+    </script>
+
+    <main class="container">
+      <header>
+        <h1>Welcome to Mokona5901's Portfolio</h1>
+        <p class="lead">Backend developer — building reliable server-side systems and real-time apps.</p>
+        <p><a href="/fr/" onclick="localStorage.setItem('site_lang','fr')">Français</a></p>
+      </header>
+
+      <section>
+        <h2>About Me</h2>
+        <p>I am a backend developer focused on building scalable, maintainable services and real-time systems. Main skills: Node.js, Express, Socket.io, MongoDB, C++, and system-level tooling.</p>
+      </section>
+
+      <section>
+        <h2>Personal projects</h2>
+        <ul>
+          <li><strong>Discord bots</strong> — Multiple bots built with Node.js and Discord.js (automation, moderation, utilities).</li>
+          <li><strong>Real-time chat app</strong> — A Discord-like chat using Node.js, Express, Socket.io and MongoDB for persistence (rooms, presence, messages).</li>
+          <li><strong>Discord RPC for WSL2</strong> — Native integration written in C++ to expose Discord Rich Presence from WSL2 environments.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>GitHub</h2>
+        <div id="github-widget">Loading GitHub profile…</div>
+        <script src="/assets/js/github-widget.js"></script>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:mokona5901@gmail.com">mokona5901@gmail.com</a></p>
+      </section>
+
+      <footer>
+        <p>Deployed from the <code>mokona5901.github.io</code> repository.</p>
+      </footer>
+    </main>
+  </body>
+</html>
