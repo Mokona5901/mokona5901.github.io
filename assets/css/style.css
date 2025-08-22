@@ -66,3 +66,31 @@ a:hover {
 main {
   animation: fadeIn 0.6s ease-in-out;
 }
+
+.lang-switcher {
+  position: fixed;
+  right: 14px;
+  top: 14px;
+  z-index: 9999;
+  display: flex;
+  gap: 6px;
+}
+
+.lang-switcher .lang-btn,
+.lang-switcher a.lang-btn {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  font-weight: 600;
+}
+
+.lang-switcher .lang-btn:focus {
+  outline: 2px solid rgba(187,134,252,0.25);
+}
+
+.lang-switcher .lang-btn[hidden] {
+  display: none !important;
+}

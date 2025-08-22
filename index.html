@@ -7,19 +7,9 @@
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
-    <script src="/assets/js/lang.js"></script>
-    <script>
-      (function(){
-        try{
-          if (localStorage.getItem('site_lang')) return;
-          const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
-          const lang = nav.split('-')[0];
-          if (lang === 'fr' && !location.pathname.startsWith('/fr/')) {
-            location.href = '/fr/';
-          }
-        } catch(e){}
-      })();
-    </script>
+    <div class="lang-switcher">
+      <a class="lang-btn lang-btn--fr" href="/fr/">FR</a>
+    </div>
 
     <main class="container">
       <header>
