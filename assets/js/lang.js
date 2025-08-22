@@ -1,4 +1,3 @@
-
 (function(){
   try{
     const switcher = document.createElement('div');
@@ -28,8 +27,20 @@
     });
     btnFR.addEventListener('click', ()=>{
       localStorage.setItem('site_lang','fr');
-      if (!location.pathname.startsWith('/fr/')) location.href = '/fr/';
+      if (!location.pathname.startsWith('/fr')) location.href = '/fr/';
     });
+
+    try {
+      const path = location.pathname || '/';
+      const atRoot = path === '/' || path === '';
+      const atFr = path === '/fr' || path === '/fr/' || path.startsWith('/fr/');
+      if (atRoot) {
+        btnEN.style.display = 'none';
+      }
+      if (atFr) {
+        btnFR.style.display = 'none';
+      }
+    } catch(e){}
 
     switcher.appendChild(btnEN);
     switcher.appendChild(btnFR);
