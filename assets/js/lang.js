@@ -31,19 +31,22 @@
     });
 
     try {
-      const path = location.pathname || '/';
-      const atRoot = path === '/' || path === '';
-      const atFr = path === '/fr' || path === '/fr/' || path.startsWith('/fr/');
-      if (atRoot) {
-        btnEN.style.display = 'none';
-      }
-      if (atFr) {
-        btnFR.style.display = 'none';
-      }
-    } catch(e){}
+      const rawPath = (location && location.pathname) ? location.pathname : '/';
+      const normalized = rawPath.split('?')[0].split('#')[0];
+      const rootPaths = ['', '/', '/index.html', '/index.htm', '/index'];
+      const atRoot = rootPaths.includes(normalized);
+      const atFr = normalized === '/fr' || normalized === '/fr/' || normalized.startsWith('/fr/');
 
-    switcher.appendChild(btnEN);
-    switcher.appendChild(btnFR);
+      if (!atRoot) {
+        switcher.appendChild(btnEN);
+      }
+      if (!atFr) {
+        switcher.appendChild(btnFR);
+      }
+    } catch(e) {
+      switcher.appendChild(btnEN);
+      switcher.appendChild(btnFR);
+    }
     document.addEventListener('DOMContentLoaded', ()=>{
       document.body.appendChild(switcher);
     });
