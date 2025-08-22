@@ -4,12 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Portfolio de Mokona5901</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
     <div class="lang-switcher">
-      <a class="lang-btn lang-btn--en" href="/">EN</a>
+      <button class="lang-btn lang-btn--theme" id="theme-toggle"><img id="toggle-icon" src="/assets/img/light.png" alt="Light theme" height="20" width="20" onclick="toggleImage()"></button>
+      <a class="lang-btn lang-btn--en" href="/"><img src="/assets/img/en.png" alt="EN" height="20" width="25"></a>
     </div>
+
+    <script>
+    function toggleImage() {
+      const img = document.getElementById("toggle-icon");
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+
+      if (currentTheme === "light") {
+        html.setAttribute("data-theme", "dark");
+        img.src = "/assets/img/light.png";
+      } else {
+        html.setAttribute("data-theme", "light");
+        img.src = "/assets/img/dark.png";
+      }
+    }
+    </script>
 
     <main class="container">
       <header>
@@ -38,12 +56,20 @@
       </section>
 
       <section>
-        <h2>Contact</h2>
-        <p>Adresse mail : <a href="mailto:mokona5901@gmail.com">mokona5901@gmail.com</a></p>
-      </section>
+        <h2>Contactez-moi</h2>
+        <div class="contact-item">
+          <img src="/assets/img/mail.png" alt="Icone Email" height="20" width="25" class="contact-icon">
+          <a href="mailto:mokona5901@gmail.com">mokona5901@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <img src="/assets/img/discord.png" alt="Icone Discord" height="20" width="25" class="contact-icon">
+          <a href="https://discord.com/users/602431280113778690">mokona59</a>
+        </div>
+     </section>
 
       <footer>
-        <p>Déployé depuis le dépôt <code>mokona5901.github.io</code>.</p>
+        <p>Déployé depuis le dépôt <a href="https://github.com/mokona5901/mokona5901.github.io"><code>mokona5901.github.io</code> </a></p>
       </footer>
     </main>
   </body>
