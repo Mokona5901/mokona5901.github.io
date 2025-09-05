@@ -14,18 +14,24 @@
     </div>
 
     <script>
-    function toggleImage() {
-      const img = document.getElementById("toggle-icon");
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute("data-theme");
+    const img = document.getElementById("toggle-icon");
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
 
-      if (currentTheme === "light") {
-        html.setAttribute("data-theme", "dark");
-        img.src = "/assets/img/light.png";
-      } else {
-        html.setAttribute("data-theme", "light");
-        img.src = "/assets/img/dark.png";
-      }
+    if (savedTheme) {
+      html.setAttribute("data-theme", savedTheme);
+      img.src = savedTheme === "light" ? "/assets/img/dark.png" : "/assets/img/light.png";
+    } else {
+      html.setAttribute("data-theme", "dark");
+      img.src = "/assets/img/light.png";
+    }
+
+    function toggleImage() {
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      img.src = newTheme === "light" ? "/assets/img/dark.png" : "/assets/img/light.png";
     }
     </script>
 
@@ -37,16 +43,17 @@
 
       <section>
         <h2>About Me</h2>
-        <p>I am a backend developer focused on building scalable, maintainable services and real-time systems. Main skills: Node.js, Express, Socket.io, MongoDB, C++, and system-level tooling.</p>
+        <p>I am a backend developer focused on building scalable, maintainable services and real-time systems. My main skills are: Node.js, HTML/CSS/PHP/JS/SQL, C++ and Symfony.</p>
       </section>
 
       <section>
         <h2>Personal projects</h2>
-        <ul>
-          <li><strong>Discord bots</strong> — Multiple bots built with Node.js and Discord.js (automation, moderation, utilities).</li>
-          <li><strong>Real-time chat app</strong> — A Discord-like chat using Node.js, Express, Socket.io and MongoDB for persistence (rooms, presence, messages).</li>
-          <li><strong>Discord RPC for WSL2</strong> — Native integration written in C++ to expose Discord Rich Presence from WSL2 environments.</li>
-        </ul>
+          <details><summary class="hover"><strong>Discord bots</strong> — Several bots built with Node.js and Discord.js (automation, moderation, utilities). Using several APIs for the commands.</summary>
+              <img src="/assets/img/bots.png" width="265" height="138" alt="Mokona59 used /ai, Hello! Do you have a pet ?"></details>
+          <details><summary class="hover"><strong>Real-time chat app</strong> — A Discord-like chat app using Node.js, Express, Socket.io and MongoDB.</summary>
+              <img src="/assets/img/chatapp.png" width="500" height="600" alt="chatapp image"></details>
+          <details><summary class="hover"><strong>Discord RPC for WSL2</strong> — Native C++ integration of Discord Rich Presence for the WSL2 environment.</summary>
+              <img src="/assets/img/wsl2rpc-win.png" alt="RPC when user is on a windows app"><img src="/assets/img/wsl2rpc-wsl.png" alt="RPC when user is on a WSL2 app"></details>
       </section>
 
       <section>
